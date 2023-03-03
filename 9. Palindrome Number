@@ -1,0 +1,32 @@
+//Python
+class Solution:
+    def isPalindrome(self, x: int) -> bool:
+        summ = 0
+        temp = x
+        if temp < 0:
+            return False
+        
+        else:
+            while temp != 0:
+                summ = summ * 10 + temp % 10
+                temp = temp // 10
+
+        if x == summ:
+            return True
+            
+-----------------------------------------------------------
+
+//Javascript
+var isPalindrome = function(x) {
+    if(x<0) return false;
+   
+    x = x.toString();
+    numLen = x.length - 1;
+     mid = Math.trunc(numLen/2);
+    for(let i=0; i<=mid; i++) {
+        if(x[i] != x[numLen-i]) {
+            return false;
+        }
+    }
+    return true;
+};
