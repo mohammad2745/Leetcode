@@ -1,0 +1,23 @@
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var numIdenticalPairs = function(nums) {
+    let n = {};
+    let counter = 0
+    let values=0;
+    for(let i=0; i< nums.length; i++) {
+        if(nums[i] in n) {
+            n[nums[i]] += 1;
+        } else {
+            n[nums[i]] = 1;
+        }
+    }
+
+    for(key of Object.keys(n)) {
+        values = n[key]
+        counter += (values*(values-1))/2
+    }
+
+    return counter
+};
