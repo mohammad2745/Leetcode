@@ -1,0 +1,45 @@
+/**
+ * @param {string} s
+ * @param {string} t
+ * @return {boolean}
+ */
+var isAnagram = function(s, t) {
+    dict = new Object();
+    dict1 = new Object();
+
+    for(let i=0; i<s.length; i++) {
+        if(s[i] in dict) {
+            dict[s[i]] += 1;
+        } else {
+            dict[s[i]] = 1;
+        }
+    }
+
+    for(let j=0; j<t.length; j++) {
+        if(t[j] in dict1) {
+            dict1[t[j]] += 1;
+        } else {
+            dict1[t[j]] = 1;
+        }
+    }
+
+    let objEqual = false;
+    const obj1Keys = Object.keys(dict).sort();
+    const obj2Keys = Object.keys(dict1).sort();
+
+    if (obj1Keys.length !== obj2Keys.length) {
+    return objEqual;
+    } else {
+        const areEqual = obj1Keys.every((key, index) => {
+            const objValue1 = dict[key];
+            const objValue2 = dict1[key];
+            
+            return objValue1 === objValue2;
+        });
+
+        if (areEqual) {
+            objEqual = true; 
+        } 
+        return objEqual;
+    }
+};
