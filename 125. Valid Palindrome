@@ -1,0 +1,27 @@
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+var isPalindrome = function(s) {
+    let [left, right] = [0, s.length-1];
+    let leftChar, rightChar;
+
+    while(left < right) {
+        leftChar = s[left];
+        rightChar = s[right];
+
+        if(!/[a-zA-Z0-9]/.test(leftChar)) {
+            left += 1;
+        } else if (!/[a-zA-Z0-9]/.test(rightChar)) {
+            right -= 1;
+        } else {
+            if (leftChar.toLowerCase() != rightChar.toLowerCase()) {
+                return false;
+            } else {
+                left += 1;
+                right -= 1;
+            }
+        }
+    }
+    return true;
+};
