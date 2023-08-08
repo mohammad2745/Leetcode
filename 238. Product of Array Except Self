@@ -1,0 +1,25 @@
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var productExceptSelf = function(nums) {
+   let [product, productZero, countZero] = [1, 1, 0];
+   let productArray = [];
+   for(let i=0; i<nums.length; i++) {
+       if(nums[i] === 0) countZero += 1; 
+       if(nums[i] != 0) { productZero *= nums[i]}
+       product = product * nums[i];
+   } 
+
+   if(countZero > 1) [product, productZero] = [0, 0]
+   
+   for(let i=0; i<nums.length; i++) {
+       if(nums[i] === 0) { 
+           productArray.push(productZero);
+        } else {
+            productArray.push(product/nums[i]);
+        }
+       
+   }
+   return productArray;
+};
