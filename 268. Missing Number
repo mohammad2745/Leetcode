@@ -1,0 +1,17 @@
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var missingNumber = function(nums) {
+    len_arr = nums.length;
+    xor = 0;
+    
+    for(let i=0; i<= len_arr; i++) {
+        xor = xor ^ i;
+    }
+
+    for(let i in nums) {
+        xor = xor ^ nums[i];
+    }
+    return xor;
+};
