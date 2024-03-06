@@ -1,0 +1,18 @@
+/**
+ * @param {number[]} nums
+ * @param {number} diff
+ * @return {number}
+ */
+var arithmeticTriplets = function(nums, diff) {
+    let triplet = 0;
+    for(let i=0; i<nums.length; i++) {
+        const j = nums[i]+diff;
+        if(nums.includes(j)) {
+            const k = j + diff;
+            if(nums.includes(k)) {
+                triplet += 1;
+            }
+        }
+    }
+    return triplet;
+};
