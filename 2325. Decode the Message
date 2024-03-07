@@ -1,0 +1,27 @@
+/**
+ * @param {string} key
+ * @param {string} message
+ * @return {string}
+ */
+var decodeMessage = function(key, message) {
+    let keyItem = 0;
+    let alphabet = 97;
+    let dict = {};
+    let result = '';
+    while(keyItem< key.length) {
+        if(!(key[keyItem] in dict) && key[keyItem] !== ' ') {
+            dict[key[keyItem]] = String.fromCharCode(alphabet);
+            alphabet += 1;
+        }
+        keyItem += 1;
+    }
+    
+    for(let i=0; i< message.length; i++) {
+        if(message[i] in dict) {
+            result += dict[message[i]]
+        } else if(message[i] === ' ') {
+            result += ' ';
+        }
+    }
+    return result;
+};
